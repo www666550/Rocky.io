@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Under Construction</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Link to your CSS file -->
+    <style>
+        .big-select {
+            display: inline-block;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            text-decoration: none;
+            color: black; /* Change this to the desired color */
+            width: 100%;
+            box-sizing: border-box;
+            cursor: pointer; /* Change cursor to pointer to indicate it's clickable */
+        }
+        .placeholder {
+            color: #aaa;
+        }
+        .countdown {
+            font-size: 2em;
+            margin: 20px 0;
+            color: #00FFCC;
+            text-shadow: 0 0 10px #FF00FF; /* Glowing text */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Project Under Construction</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+        </nav>
+
+        <h2>I'm working hard to bring this project to you! Please check back soon.</h2>
+        
+        <div class="countdown" id="countdown"></div>
+
+        <script>
+            // Set the date we're counting down to (2 months from now)
+            let countDownDate = new Date();
+            countDownDate.setMonth(countDownDate.getMonth() + 2);
+
+            // Update the count down every 1 second
+            let x = setInterval(function() {
+                // Get today's date and time
+                let now = new Date().getTime();
+
+                // Find the distance between now and the countdown date
+                let distance = countDownDate - now;
+
+                // Time calculations for days, hours, minutes and seconds
+                let days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                let hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                let seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                // Display the result in the countdown element
+                document.getElementById("countdown").innerHTML = days + "d " + hours + "h "
+                + minutes + "m " + seconds + "s ";
+
+                // If the countdown is over, display a message
+                if (distance < 0) {
+                    clearInterval(x);
+                    document.getElementById("countdown").innerHTML = "Project is live!";
+                }
+            }, 1000);
+        </script>
+    </div>
+</body>
+</html>
